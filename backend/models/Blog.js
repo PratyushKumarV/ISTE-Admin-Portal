@@ -1,14 +1,19 @@
 const mongoose=require('mongoose')
 
-const blogSchema=mongoose.Schema({
-    name: {type:String, required:true},
-    date: {type:Date, required: true},
-    link: {type: String, required: true},
-    author: {type:String, required: true},
-    regno: {type: String, required: true},
-    banner: {type: String, required: true}
+const BlogSchema = new mongoose.Schema({
+    blog_name:{type:String},
+    blog_date:{type:String},
+    blog_link:{type:String},
+    writer_name:{type:String},
+    writer_regno:{type:String},
+    image: { 
+        filename: { type: String },    
+        filepath: { type: String },    
+        filetype: { type: String },    
+        size: { type: Number }         
+    }
 })
 
-const Blog=mongoose.model("blogs", blogSchema)
+const Blog = mongoose.model("blogs",BlogSchema);
 
 module.exports=Blog
