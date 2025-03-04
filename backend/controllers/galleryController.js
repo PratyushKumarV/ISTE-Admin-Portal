@@ -1,6 +1,5 @@
 const Gallery=require("../models/Gallery")
-const axios=require("axios")
-const FormData=require("form-data")
+const getURLImage=require("../utils/uploadImage")
 
 const addGallery=async(req, res)=>{
     try{
@@ -8,23 +7,16 @@ const addGallery=async(req, res)=>{
          if(!req.file){
             return res.status(400).json({error: "No file uploaded"})
         }
-
-        const imgKey=process.env.IMGBB_KEY
-        const formData=new FormData()
-        formData.append("image", req.file.buffer.toString("base64"))
-
-        const response=await axios.post(`https://api.imgbb.com/1/upload?key=${imgKey}`, formData, {
-            headers: formData.getHeaders() // automatically sets correct headers
-        })
     
+        const url=await getURLImage(req.file.buffer.toString("base64"))
 
         const newImage=new Gallery({
             image:{
-                url:response.data.data.url
+                url:url
             }
         })
         await newImage.save()
-
+        
         res.status(201).json({message: "Image added successfully"})
     }catch(error){
         console.error(error.message)
