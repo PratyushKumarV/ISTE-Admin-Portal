@@ -1,10 +1,10 @@
 const express=require('express')
 const router=express.Router();
 
-router.use(express.json)
+router.use(express.json())
 
-const {add_event,get_event}=require("../controllers/eventController")
+const {addEvent,getEvent}=require("../controllers/eventController")
 
-router.post('/',add_event).get('/',get_event)
+router.post('/',addEvent).get('/',getEvent)
 
 module.exports=router

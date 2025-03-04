@@ -1,8 +1,10 @@
 const express=require('express')
-const router=express.Router()
+const router=express.Router();
 
-router.get('/', (req, res)=>{
+router.use(express.json())
 
-})
+const {addResource,getResource}=require("../controllers/resourceController")
+
+router.post('/',addResource).get('/',getResource)
 
 module.exports=router

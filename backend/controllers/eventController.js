@@ -1,6 +1,6 @@
 const Event = require('../models/Event')
 
-const add_event = async(req,res)=>{
+const addEvent = async(req,res)=>{
     try {
         console.log(req.body)
         const event = new Event(req.body);
@@ -12,7 +12,7 @@ const add_event = async(req,res)=>{
     }
 }
 
-const get_event=async (req, res) => {
+const getEvent=async (req, res) => {
     try {
         const events = await Event.find();
         res.json(events);
@@ -21,4 +21,4 @@ const get_event=async (req, res) => {
     }
 }
 
-module.exports={add_event, get_event}
+module.exports={addEvent, getEvent}

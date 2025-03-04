@@ -1,24 +1,12 @@
 const mongoose=require('mongoose')
 
-const PersonSchema = new mongoose.Schema({
-    name: {type: String},
-    github_scholar: {type: String},  
-    linkedin: {type: String},  
-    reg_no: {type: String,},  
-    domain: {type: String},  
-    category: { 
-        type: String, 
-        enum: ["BOARD", "CORE", "ADVISORY", "COMMITTEE"], 
-    },
+const GallerySchema = new mongoose.Schema({
     image: { 
-        filename: { type: String },    
-        filepath: { type: String },    
-        filetype: { type: String },    
-        size: { type: Number }         
+        base64:{type: String}         
     }
 });
 
 
-const Person = mongoose.model("gallery",PersonSchema)
+const Gallery = mongoose.model("gallery",GallerySchema)
 
-module.exports=Person
+module.exports=Gallery
