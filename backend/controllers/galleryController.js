@@ -4,12 +4,30 @@ const FormData=require("form-data")
 
 const addGallery=async(req, res)=>{
     try{
+         // req.file has the file uploaded as a form data, parsed using multer
+         if(!req.file){
+            return res.status(400).json({error: "No file uploaded"})
+        }
+
         const imgKey=process.env.IMGBB_KEY
-        const formData=new FormData(req.body)
-        console.log(req.body)
+        const formData=new FormData()
+        formData.append("image", req.file.buffer.toString("base64"))
+
+        const response=await axios.post(`https://api.imgbb.com/1/upload?key=${imgKey}`, formData, {
+            headers: formData.getHeaders() // automatically sets correct headers
+        })
+    
+
+        const newImage=new Gallery({
+            image:{
+                url:response.data.data.url
+            }
+        })
+        await newImage.save()
+
         res.status(201).json({message: "Image added successfully"})
     }catch(error){
-        console.error(error)
+        console.error(error.message)
         res.status(500).json({error:"Failed to add image"})
     }
 }

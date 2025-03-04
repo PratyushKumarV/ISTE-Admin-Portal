@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 const GallerySchema = new mongoose.Schema({
     image: { 
-        base64:{type: String}         
+        url:{type: String}         
     }
 });
 
