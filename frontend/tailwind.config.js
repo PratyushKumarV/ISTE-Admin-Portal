@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Anton: ['Anton', 'sans-serif'], 
+        anton: ['Anton', 'sans-serif'], 
       },
     },
   },
