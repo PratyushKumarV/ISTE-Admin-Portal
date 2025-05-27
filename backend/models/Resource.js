@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-const resource_schema = ({
+const ResourceSchema = ({
     resource_name:{type:String},
     domain:{type:String},
     github_link:{type:String},
@@ -14,5 +14,5 @@ const resource_schema = ({
     }
 })
 
-const Resource = mongoose.model("resources",resource_schema);
+const Resource = mongoose.model("resources",ResourceSchema);
 module.exports=Resource;

@@ -8,6 +8,6 @@ router.use(express.json())
 
 const {addGallery, getGallery}=require("../controllers/galleryController")
 
-router.get('/', getGallery).post('/', upload.single("image"), addGallery) // image field should match the formData structure
+router.get('/', getGallery).post('/', upload.single("image"), addGallery) // image field in upload.single() should match the formData field name
 
 module.exports=router
