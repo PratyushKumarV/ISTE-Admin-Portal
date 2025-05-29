@@ -1,4 +1,4 @@
-function AddBlogs(){
+function AddProjects(){
     return (
         <>
             <div className="flex flex-col h-screen">
@@ -10,17 +10,17 @@ function AddBlogs(){
                         </div>
                     </div>
                 </div>
-                <div className="[flex-grow:20] bg-[#fcb8b5] flex flex-col">
+                <div className="[flex-grow:20] bg-[#ffcca6] flex flex-col">
                     <button className="font-['Anton'] text-4xl [flex-grow:1] self-start mt-[6vh] ml-[6vw] cursor-pointer">Back</button>
                     <form className="font-['Anton'] flex flex-col [flex-grow:24] w-[25vw] mx-auto items-center">
-                        <p className="text-3xl">Add blogs</p>
-                        <input type="text" placeholder="Blog Name" className="mt-4 w-full bg-white border-2 border-black p-2"/>
-                        <input type="date" placeholder="Blog Date" className="mt-4 w-full bg-white border-2 border-black p-2"/>
-                        <input type="url" placeholder="Blog Link" className="mt-4 w-full bg-white border-2 border-black p-2"/>
+                        <p className="text-3xl">Add Projects</p>
+                        <input type="text" placeholder="Project Name" className="mt-4 w-full bg-white border-2 border-black p-2"/>
+                        <input type="text" placeholder="Domain" className="mt-4 w-full bg-white border-2 border-black p-2"/>
+                        <input type="url" placeholder="Github Link" className="mt-4 w-full bg-white border-2 border-black p-2"/>
                         <input type="text" placeholder="Writer's Name" className="mt-4 w-full bg-white border-2 border-black p-2"/>
-                        <input type="text" placeholder="Writer's Registration Number" className="mt-4 w-full bg-white border-2 border-black p-2"/>
-                        <input type="text" placeholder="Upload Banner Photo" className="mt-4 w-full bg-white border-2 border-black p-2"/>
-                        <button className="mt-4 w-full bg-[#ff6863] border-2 border-black p-2 cursor-pointer">Submit</button>
+                        <input type="text" placeholder="No. of Project Members" className="mt-4 w-full bg-white border-2 border-black p-2"/>
+                        <input type="text" placeholder="Registration Number" className="mt-4 w-full bg-white border-2 border-black p-2"/>
+                        <button className="mt-4 w-full bg-[#ff6863] border-2 border-black p-2 cursor-pointer">Next</button>
                     </form>
                 </div>
             </div>
@@ -28,4 +28,4 @@ function AddBlogs(){
     )
 }
 
-export default AddBlogs
+export default AddProjects
